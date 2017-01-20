@@ -1,6 +1,10 @@
 Documentation:
 
+
+
 Class: GraphWin("Title",width,height)  --> Creates the window
+
+
 
 Methods:
 
