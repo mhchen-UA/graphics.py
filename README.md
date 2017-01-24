@@ -1,18 +1,18 @@
 
-Class: GraphWin("Title",width,height)  --> Creates the window
+GraphWin("Title",width,height)  --> Creates the window
 
+_________________
 
-
-Methods
+Window Methods
 _____________________
 
-  setBackground("Red")
+  setBackground("red")
   
   isClosed()   returns boolean
   
   isOpen()     returns boolean
   
-  plotPixel(x,y,"Red") Use loops to draw curves
+  plotPixel(x,y,"red") (Use trig loops to draw curves)
   
   win.getMouse()  waits and returns the clicked position as Point(x,y)
   
@@ -26,4 +26,35 @@ _____________________
   
   win.getWidth()
   
+  __________________
   
+  Draw Objects
+  _______________
+  Point(x,y)   
+  Line(Point,Point)
+  Circle(Point,radius) 
+  Rectangle(Point,Point)
+  Polygon(Point,Point,Point...)   Infinite points
+  Text(Point,"text")
+  ____________________
+  Draw Methods
+  _________________
+  setFill("Red")   changes interior color
+  setOutline("Red")   changes outline color
+  setWidth(int)   outline width
+  move(x,y)    relative translation
+  ______________
+  Input Object: Entry(Point,width)
+  Input Methods
+  ______________
+  getText()    gets text inside textbox 
+  setText("string")
+  setSize(int)  5-36, character font size
+  setTextColor("red")
+  move(x,y)
+  draw(GraphWin)
+  undraw()
+  ___________________________
+  Color uses X11: http://cng.seas.rochester.edu/CNG/docs/x11color.html
+  _____________
+  color_rgb(0,255,255)   red, green, blue, 0-255
