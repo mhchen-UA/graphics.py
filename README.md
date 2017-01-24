@@ -32,18 +32,34 @@ _____________________
   
   Draw Objects
   _______________
-  Point(x,y)   
+  Point(x,y) 
+  
+  
   Line(Point,Point)
+  
+  
   Circle(Point,radius) 
+  
+  
   Rectangle(Point,Point)
+  
+  
   Polygon(Point,Point,Point...)   Infinite points
+  
+  
   Text(Point,"text")
   ____________________
   Draw Methods
   _________________
   setFill("Red")   changes interior color
+  
+  
   setOutline("Red")   changes outline color
+  
+  
   setWidth(int)   outline width
+  
+  
   move(x,y)    relative translation
   ______________
   Input Object: Entry(Point,width)
@@ -53,11 +69,23 @@ _____________________
   Input Methods
   ______________
   getText()    gets text inside textbox 
+  
+  
   setText("string")
+  
+  
   setSize(int)  5-36, character font size
+  
+  
   setTextColor("red")
+  
+  
   move(x,y)
+  
+  
   draw(GraphWin)
+  
+  
   undraw()
   ___________________________
   Color uses X11: http://cng.seas.rochester.edu/CNG/docs/x11color.html
