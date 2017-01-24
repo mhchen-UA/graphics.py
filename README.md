@@ -47,7 +47,9 @@ _____________________
   move(x,y)    relative translation
   ______________
   Input Object: Entry(Point,width)
-  ---
+  
+  
+  
   Input Methods
   ______________
   getText()    gets text inside textbox 
