@@ -1,4 +1,5 @@
 
+```from graphics import *```
 GraphWin("Title",width,height)  --> Creates the window
 
 _________________
@@ -58,3 +59,12 @@ _____________________
   Color uses X11: http://cng.seas.rochester.edu/CNG/docs/x11color.html
   _____________
   color_rgb(0,255,255)   red, green, blue, 0-255
+  _________________
+  _________________
+  Example:
+  ```
+  from graphics import *
+  win = GraphWin("Michael",500,300)
+  for i in range(30):
+    
+  ```
