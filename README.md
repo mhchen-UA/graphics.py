@@ -1,5 +1,5 @@
 
-##### Place this file in the same place/folder where you store your main python file. Then in your main python file, add this:
+##### Place this file in the **same** place/folder as your main python file. (Like put both in desktop) Then in your main python file, add this:
 ```python
 from graphics import *
 ```
