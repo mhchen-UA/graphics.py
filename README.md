@@ -104,9 +104,8 @@ _________________
   `undraw()`
   ___________________________
   Color uses X11: http://cng.seas.rochester.edu/CNG/docs/x11color.html
-  _____________
+  
   `color_rgb(0,255,255)`  0-255, returns a color
-  _________________
   _________________
   Example:
   ```python
@@ -117,5 +116,4 @@ _________________
     c.draw(win)
     update(4)  #goes through the loop at 4 frames per second
     c.undraw()
-    
   ```
