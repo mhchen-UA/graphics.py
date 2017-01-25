@@ -7,6 +7,8 @@ from graphics import *
 ***
 ## Window Object: `GraphWin("Title",width,height)`
 
+##### ex: `win = GraphWin("Mikey",400,300)`
+
 #### Coordinate System:
 
 ![Image Not Displaying Correctly](https://cloud.githubusercontent.com/assets/15696473/22276676/34aafcb2-e283-11e6-8ff3-a6e6f97dc931.png "Coordinate System")
