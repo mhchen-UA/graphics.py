@@ -106,7 +106,7 @@ Window Object: `GraphWin("Title",width,height)`
   
   `color_rgb(0,255,255)`  0-255, returns a color
   _________________
-  Example:
+###  Example:
   ```python
   from graphics import *
   win = GraphWin("Michael",500,300)
