@@ -122,4 +122,4 @@ for i in range(30):
 
 
 ------------
-###### I got this from http://mcsp.wartburg.edu/zelle/python/graphics/graphics/index.html
+###### I got all this from http://mcsp.wartburg.edu/zelle/python/graphics/graphics/index.html
