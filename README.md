@@ -111,12 +111,12 @@ The origin is at the top left. X moves right. Y moves down.
 ###  Example:
   ```python
 from graphics import *
-win = GraphWin("Michael",500,300)
+win = GraphWin("Michael",500,300) #Window of height 500px and width 300px
 for i in range(30):
-  c = Circle(Point(100+i,100),40)
-  c.draw(win)
+  c = Circle(Point(100+i,100),40) #Creates a Circle with radius 40px
+  c.draw(win)  #Actually draws it
   update(1)  #basically time.sleep(1)
-  c.undraw()
+  c.undraw()  #Removes it
 ```
 
 
