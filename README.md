@@ -108,11 +108,11 @@ Window Object: `GraphWin("Title",width,height)`
   _________________
 ###  Example:
   ```python
-  from graphics import *
-  win = GraphWin("Michael",500,300)
-  for i in range(30):
-    c = Circle(Point(20,30),40+i)
-    c.draw(win)
-    update(4)  #goes through the loop at 4 frames per second
-    c.undraw()
-  ```
+from graphics import *
+win = GraphWin("Michael",500,300)
+for i in range(30):
+  c = Circle(Point(20,30),40+i)
+  c.draw(win)
+  update(4)  #goes through the loop at 4 frames per second
+  c.undraw()
+```
