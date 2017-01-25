@@ -1,5 +1,7 @@
 
-```from graphics import *```
+```python
+from graphics import *
+```
 ***
 GraphWin("Title",width,height)  --> Creates the window
 
@@ -94,7 +96,7 @@ _____________________
   _________________
   _________________
   Example:
-  ```
+  ```python
   from graphics import *
   win = GraphWin("Michael",500,300)
   for i in range(30):
