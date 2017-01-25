@@ -5,7 +5,7 @@ from graphics import *
 ```
 ##### Make sure you're using IDLE
 ***
-## Window Object: `GraphWin("Title",width,height)`  Creates the window 
+## Window Object: `GraphWin("Title",width,height)`
 
 ## Window Methods
 
