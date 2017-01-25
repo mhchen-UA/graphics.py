@@ -6,12 +6,14 @@ from graphics import *
 ##### Make sure you're using IDLE
 ***
 Window Object: `GraphWin("Title",width,height)`
-------------
+
+### Coordinate System:
+
+![Image Not Displaying Correctly](https://cloud.githubusercontent.com/assets/15696473/22276676/34aafcb2-e283-11e6-8ff3-a6e6f97dc931.png "Coordinate System")
+
+The origin is at the top left. X moves right. Y moves down.
 
 ## Window Methods
-
-
-
 
 
   `setBackground("red")`
