@@ -1,7 +1,9 @@
 
+##### Place this file in the same place/folder where you store your main python file. Then in your main python file, add this:
 ```python
 from graphics import *
 ```
+##### Make sure you're using IDLE
 ***
 GraphWin("Title",width,height)  --> Creates the window
 
