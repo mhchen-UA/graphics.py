@@ -118,3 +118,8 @@ for i in range(30):
   update(1)  #basically time.sleep(1)
   c.undraw()
 ```
+
+
+
+------------
+###### I got this from http://mcsp.wartburg.edu/zelle/python/graphics/graphics/index.html
