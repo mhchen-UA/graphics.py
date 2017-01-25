@@ -37,7 +37,7 @@ _________________
   
   __________________
   
-  ## Draw Objects
+## Draw Objects
   
   
   
@@ -59,7 +59,8 @@ _________________
   
   Text(Point,"text")
   ____________________
-  ## Draw Methods
+
+## Draw Methods
   
   
   
@@ -77,7 +78,7 @@ _________________
   ______________
   Input Object: Entry(Point,width)
   
-  ## Input Methods
+## Input Methods
   
   
   
