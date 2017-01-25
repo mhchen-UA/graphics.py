@@ -9,8 +9,11 @@ GraphWin("Title",width,height)  --> Creates the window
 
 _________________
 
-Window Methods
-_____________________
+## Window Methods
+
+
+
+
 
   setBackground("red")
   
@@ -34,8 +37,11 @@ _____________________
   
   __________________
   
-  Draw Objects
-  _______________
+  ## Draw Objects
+  
+  
+  
+  
   Point(x,y) 
   
   
@@ -53,8 +59,11 @@ _____________________
   
   Text(Point,"text")
   ____________________
-  Draw Methods
-  _________________
+  ## Draw Methods
+  
+  
+  
+  
   setFill("Red")   changes interior color
   
   
@@ -68,10 +77,11 @@ _____________________
   ______________
   Input Object: Entry(Point,width)
   
+  ## Input Methods
   
   
-  Input Methods
-  ______________
+  
+  
   getText()    gets text inside textbox 
   
   
