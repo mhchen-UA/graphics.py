@@ -111,8 +111,8 @@ Window Object: `GraphWin("Title",width,height)`
 from graphics import *
 win = GraphWin("Michael",500,300)
 for i in range(30):
-  c = Circle(Point(20,30),40+i)
+  c = Circle(Point(100+i,100),40)
   c.draw(win)
-  update(4)  #goes through the loop at 4 frames per second
+  update(1)  #basically time.sleep(1)
   c.undraw()
 ```
