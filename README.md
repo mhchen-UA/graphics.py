@@ -5,7 +5,7 @@ from graphics import *
 ```
 ##### Make sure you're using IDLE
 ***
-GraphWin("Title",width,height)  --> Creates the window
+`GraphWin("Title",width,height)`  Creates the window
 
 _________________
 
@@ -42,22 +42,22 @@ _________________
   
   
   
-  Point(x,y) 
+  `Point(x,y)` 
   
   
-  Line(Point,Point)
+  `Line(Point,Point)`
   
   
-  Circle(Point,radius) 
+  `Circle(Point,radius)` 
   
   
-  Rectangle(Point,Point)
+  `Rectangle(Point,Point)`
   
   
-  Polygon(Point,Point,Point...)   Infinite points
+  `Polygon(Point,Point,Point...)`   Infinite points
   
   
-  Text(Point,"text")
+  `Text(Point,"text")`
   ____________________
 
 ## Draw Methods
@@ -65,47 +65,47 @@ _________________
   
   
   
-  setFill("Red")   changes interior color
+  `setFill("Red")`   changes interior color
   
   
-  setOutline("Red")   changes outline color
+  `setOutline("Red")`   changes outline color
   
   
-  setWidth(int)   outline width
+  `setWidth(int)`   outline width
   
   
-  move(x,y)    relative translation
+  `move(x,y)`    relative translation
   ______________
-  Input Object: Entry(Point,width)
+## Input Object: `Entry(Point,width)`
   
 ## Input Methods
   
   
   
   
-  getText()    gets text inside textbox 
+  `getText()`    gets text inside textbox 
   
   
-  setText("string")
+  `setText("string")`
   
   
-  setSize(int)  5-36, character font size
+  `setSize(int)`  5-36, character font size
   
   
-  setTextColor("red")
+  `setTextColor("red")`
   
   
-  move(x,y)
+  `move(x,y)`
   
   
-  draw(GraphWin)
+  `draw(GraphWin)`
   
   
-  undraw()
+  `undraw()`
   ___________________________
   Color uses X11: http://cng.seas.rochester.edu/CNG/docs/x11color.html
   _____________
-  color_rgb(0,255,255)   red, green, blue, 0-255
+  `color_rgb(0,255,255)`  0-255, returns a color
   _________________
   _________________
   Example:
@@ -115,7 +115,7 @@ _________________
   for i in range(30):
     c = Circle(Point(20,30),40+i)
     c.draw(win)
-    update(4)
+    update(4)  #goes through the loop at 4 frames per second
     c.undraw()
     
   ```
