@@ -76,6 +76,11 @@ The origin is at the top left. X moves right. Y moves down.
   
   
   `move(x,y)`    relative translation
+  
+  `draw(GraphWin)`  draws it
+  
+  `undraw()`   removes it
+  
   ______________
 ## Input Object: `Entry(Point,width)`
   
