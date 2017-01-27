@@ -39,15 +39,21 @@ The origin is at the top left. X moves right. Y moves down.
   `getWidth()`
   
   __________________
+## Point Object: Point(x,y)
+
+## Point Methods:
+
+`getX()` 
+
+`getY()`
+
+ `move(x,y)` Relative Translation
+ 
+  ________________
   
 ## Draw Objects
   
-  
-  
-  
-  `Point(x,y)` 
-  
-  
+
   `Line(Point,Point)`
   
   
@@ -64,7 +70,6 @@ The origin is at the top left. X moves right. Y moves down.
   ____________________
 
 ## Draw Methods
-  
   
   
   
