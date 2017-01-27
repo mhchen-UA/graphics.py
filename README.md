@@ -7,7 +7,7 @@ from graphics import *
 ***
 ## Window Object: `GraphWin("Title",width,height)`
 
-##### ex: `win = GraphWin("Mikey",400,300)`
+##### Example: `win = GraphWin("Mikey",400,300)`
 
 #### Coordinate System:
 
