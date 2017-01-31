@@ -4,25 +4,32 @@
 | |\ \_/ /| |  _  |  _| | |___  |  _  |   |  ___| | |     | |    | |___  |  ___| \   _  |
 | | \___/ | | | | | |_  |  _  | | |_| |_  | |___  | |     | |__  |  _  | | |___   | | | |
 |_|       |_| |_| |___| |_| |_| |_______| |_____| |_|     |____| |_| |_| |_____|  |_| |_|     
+ Fixed Input Cost Market Simulation
  Date: 1/31/17
  Period:1
  """
 
 from graphics import *
 import random
-
+import time
 class Window:
     def __init__(self):
         self.x = 800
         self.y = 600
         self.day = 0
         self.textSize = 25
-        self.e = None #Input
+        self.e = None #Input Object (e = Entry())
         self.revenue = 0   #Revenue
         self.stock = 0  #Quanity owned
         self.inputCost = 0 #Input Cost
         self.profit = self.revenue - self.inputCost #Profit
         self.name = "" #User's name
+        #[Title,text,demand-shift]
+        self.cakeNews = [   #I placed the list of news here so that its changes can be preserved
+            ["CAKES ARE UNHEALTHY","The University of Anarctica has\nfound a shocking discovery on\nthe strong correlation between cakes and\ndiabetes. \'They have too much\nsugar, the public should really refrain\nfrom eating them\' says Dr. Michael,\nthe leading scientist in this study.",-20],
+            ["POLICE SHOOTING SPARKS\nPROTESTS","An amateur video shot by a\nbystander, officer Repucci fatally shot an\nunarmed 9 year old girl while she was\nmaking cake. Protesters are encouraging\neveryone to buy cakes to support their\ncampaign in prosecuting Repucci.",50],
+            ["NATIONAL CAKE DAY","The President of the United States has\nofficial declared this day to be National\nCake Day. Citizens world-wide are\ncelebrating by buying more cake.",200],
+            ]
 
     def createInterface(self): #makes the window and divides the sections with lines
         self.win = GraphWin("Window",self.x,self.y)
@@ -33,7 +40,7 @@ class Window:
         self.line5 = Line(Point(0,self.y//2),Point(self.x//2,self.y//2))
         self.line6 = Line(Point(0,(self.y*2)//3),Point(self.x//2,(self.y*2)//3))
         self.line7 = Line(Point(0,(self.y*5)//6),Point(self.x//2,(self.y*5)//6))
-        self.line1.draw(self.win)#Drawing the lines to organize
+        self.line1.draw(self.win)  #Drawing the lines to organize/separate the sections
         self.line2.draw(self.win)
         self.line3.draw(self.win)
         self.line4.draw(self.win)
@@ -65,7 +72,7 @@ class Window:
         self.newsText.draw(self.win)
         
     def getProduct(self): #ask the user for product to sell
-        product = button("Gas, Car, or Cake?")
+        product = button("Gas, Car, or Cake?",17)
         if product.lower() == "cake" or product.lower() == "car" or product.lower() == "gas":   
             return product
         return self.getProduct()
@@ -77,19 +84,17 @@ class Window:
 
     def getNews(self, product):  #gets random news
         def cakeNews():
-            #[Title,text,demand-shift]
-            news = [
-                ["CAKES ARE UNHEALTHY","The University of Anarctica has\nfound a shocking discovery on\nthe strong correlation between cakes and\ndiabetes. \'They have too much\nsugar, the public should really refrain\nfrom eating them\' says Dr. Michael,\nthe leading scientist in this study.",-20],
-                ["POLICE SHOOTING SPARKS\nPROTESTS","An amateur video shot by a\nbystander, officer Repucci fatally shot an\nunarmed 9 year old girl while she was\nmaking cake. Protesters are encouraging\neveryone to buy cakes to support their\ncampaign in prosecuting Repucci.",50],
-                ["NATIONAL CAKE DAY","The President of the United States has\nofficial declared this day to be National\nCake Day. Citizens world-wide are\ncelebrating by buying more cake.",200],
-                ]
-            selector = random.randint(0,len(news)-1)
-            return news[selector]
+            if len(self.cakeNews)==0:  #Returns empty if there's no more news
+                return ["","",0]
+            selector = random.randint(0,len(self.cakeNews)-1)
+            theNews = self.cakeNews[selector] 
+            self.cakeNews.remove(theNews)   #Makes sure a news doesn't repeat
+            return theNews
         def carNews(): 
             news = [
                 ["MITSUBISHI OPENS UP\nSTORES","The foreign company, Mitsubishi, has\nopened their ever-popular shop at the\nother side of town. Hurry up and\nget there to get the cheapest prices!\nSorry to the other car firms that have\nto compete with Mitusbishi.\nMay you rest in peace.",-40],
-                ["ECONOMY BOOST","Statisticians have estimated a large increase in the incomes of many Americans. \'I am delighted by this shift\' says economist Dr. David. \'I expect an increase in purchases of expensive products like cars.\'",20],
-                ["SEVERE WEATHER\nDESTROYS PARKING LOT","Severe thunderstorms were blamed for the destruction of a university's parking lot. Investigators say that large hail damaged the cars, which leaked gasoline, and a struck of lightning lit the floor on fire.",5], 
+                ["ECONOMY BOOST","Statisticians have estimated a\nlarge increase in the incomes of\nmany Americans. \'I am delighted\nby this shift\' says economist \nDr. David. \'I expect an increase in purchases\nof expensive products like cars.\'",20],
+                ["SEVERE WEATHER\nDESTROYS PARKING LOT","Severe thunderstorms were blamed for\nthe destruction of a university's parking\nlot. Investigators say that large hail\ndamaged the cars, which leaked gasoline,\nand a struck of lightning lit the\nfloor on fire.",5], 
                 ]
             selector = random.randint(0,len(news)-1)
             return news[selector]
@@ -100,6 +105,7 @@ class Window:
             ]
             selector = random.randint(0,len(news)-1)
             return news[selector]
+        newsObject = None
         if product == "cake":
             return cakeNews()
         elif product == "car":
@@ -118,20 +124,26 @@ class Window:
         self.newsBody.draw(self.win)
         
     def start(self,product,w): #Starts from Day 1, asks for price, then calculates revenue based on graph
+        print(1)
         news = w.getNews(product)
+        print(2)
         w.setNews(news)
-        update(1)
+        print(3)
+        self.win.setBackground(color_rgb(random.randint(1,255),random.randint(1,255),random.randint(1,255)))
+        print(4)
+ #       update(0.3) This doesn't properly time the first loop, so I use time.sleep instead
+       time.sleep(3)
+        print(5)
         self.newsTitle.undraw()
         self.newsBody.undraw()
-        self.win.setBackground(color_rgb(random.randint(1,255),random.randint(1,255),random.randint(1,255)))
 
     def getName(self):
         self.name = button("Name")
 
-def button(text): #I Used ABSTRACTION to make a button with a flexible text for input
+def button(text,textSize=24): #I Used ABSTRACTION to make a button with a flexible text for input
         w = GraphWin("",300,200)
         TEXT = Text(Point(150,30),text)
-        TEXT.setSize(25)
+        TEXT.setSize(textSize)
         TEXT.draw(w)
         e = Entry(Point(150,75),20)
         e.setSize(20)
