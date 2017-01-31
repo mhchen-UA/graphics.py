@@ -114,7 +114,7 @@ from graphics import *
   
   `undraw()`
   ___________________________
-  Color uses X11: http://cng.seas.rochester.edu/CNG/docs/x11color.html
+X11 Colors: http://cng.seas.rochester.edu/CNG/docs/x11color.html
   
   `color_rgb(0,255,255)`  0-255, returns a color
   _________________
@@ -132,4 +132,3 @@ for i in range(30):
 
 
 ------------
-###### I got all this from http://mcsp.wartburg.edu/zelle/python/graphics/graphics/index.html
