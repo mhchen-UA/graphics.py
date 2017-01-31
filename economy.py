@@ -30,7 +30,15 @@ class Window:
             ["POLICE SHOOTING SPARKS\nPROTESTS","An amateur video shot by a\nbystander, officer Repucci fatally shot an\nunarmed 9 year old girl while she was\nmaking cake. Protesters are encouraging\neveryone to buy cakes to support their\ncampaign in prosecuting Repucci.",50],
             ["NATIONAL CAKE DAY","The President of the United States has\nofficial declared this day to be National\nCake Day. Citizens world-wide are\ncelebrating by buying more cake.",200],
             ]
-
+        self.carNews = [
+            ["MITSUBISHI OPENS UP\nSTORES","The foreign company, Mitsubishi, has\nopened their ever-popular shop at the\nother side of town. Hurry up and\nget there to get the cheapest prices!\nSorry to the other car firms that have\nto compete with Mitusbishi.\nMay you rest in peace.",-40],
+            ["ECONOMY BOOST","Statisticians have estimated a\nlarge increase in the incomes of\nmany Americans. \'I am delighted\nby this shift\' says economist \nDr. David. \'I expect an increase in purchases\nof expensive products like cars.\'",20],
+            ["SEVERE WEATHER\nDESTROYS PARKING LOT","Severe thunderstorms were blamed for\nthe destruction of a university's parking\nlot. Investigators say that large hail\ndamaged the cars, which leaked gasoline,\nand a struck of lightning lit the\nfloor on fire.",5], 
+            ]
+        self.gasNews = [
+            ["BOYCOTT "+self.name.upper()+"!",self.name+"'s oil rig exploded over the Gulf\nof Mexico, prompting ocean wildlife\nprotestors to boycott their gas.",0],
+            ["BP DROPS OUT","The massive company, BP, has\nofficially announced on twitter that\n they're going out of business. \'That's\none less competitor for the gas\n industry\' says economist Rempala.",20]
+            ]
     def createInterface(self): #makes the window and divides the sections with lines
         self.win = GraphWin("Window",self.x,self.y)
         self.line1 = Line(Point(self.x//2,self.y),Point(self.x//2,0))
@@ -91,20 +99,19 @@ class Window:
             self.cakeNews.remove(theNews)   #Makes sure a news doesn't repeat
             return theNews
         def carNews(): 
-            news = [
-                ["MITSUBISHI OPENS UP\nSTORES","The foreign company, Mitsubishi, has\nopened their ever-popular shop at the\nother side of town. Hurry up and\nget there to get the cheapest prices!\nSorry to the other car firms that have\nto compete with Mitusbishi.\nMay you rest in peace.",-40],
-                ["ECONOMY BOOST","Statisticians have estimated a\nlarge increase in the incomes of\nmany Americans. \'I am delighted\nby this shift\' says economist \nDr. David. \'I expect an increase in purchases\nof expensive products like cars.\'",20],
-                ["SEVERE WEATHER\nDESTROYS PARKING LOT","Severe thunderstorms were blamed for\nthe destruction of a university's parking\nlot. Investigators say that large hail\ndamaged the cars, which leaked gasoline,\nand a struck of lightning lit the\nfloor on fire.",5], 
-                ]
-            selector = random.randint(0,len(news)-1)
-            return news[selector]
+            if len(self.carNews)==0:  #Returns empty if there's no more news
+                return ["","",0]
+            selector = random.randint(0,len(self.carNews)-1)
+            theNews = self.carNews[selector] 
+            self.carNews.remove(theNews)   #Makes sure a news doesn't repeat
+            return theNews
         def gasNews():
-            news = [
-            ["BOYCOTT "+self.name.upper()+"!",self.name+"'s oil rig exploded over the Gulf\nof Mexico, prompting ocean wildlife\nprotestors to boycott their gas.",0],
-            ["BP DROPS OUT","The massive company, BP, has\nofficially announced on twitter that\n they're going out of business. \'That's\none less competitor for the gas\n industry\' says economist Rempala.",20]
-            ]
-            selector = random.randint(0,len(news)-1)
-            return news[selector]
+            if len(self.gasNews)==0:  #Returns empty if there's no more news
+                return ["","",0]
+            selector = random.randint(0,len(self.gasNews)-1)
+            theNews = self.gasNews[selector] 
+            self.gasNews.remove(theNews)   #Makes sure a news doesn't repeat
+            return theNews
         newsObject = None
         if product == "cake":
             return cakeNews()
@@ -124,16 +131,11 @@ class Window:
         self.newsBody.draw(self.win)
         
     def start(self,product,w): #Starts from Day 1, asks for price, then calculates revenue based on graph
-        print(1)
         news = w.getNews(product)
-        print(2)
         w.setNews(news)
-        print(3)
         self.win.setBackground(color_rgb(random.randint(1,255),random.randint(1,255),random.randint(1,255)))
-        print(4)
- #       update(0.3) This doesn't properly time the first loop, so I use time.sleep instead
-       time.sleep(3)
-        print(5)
+       #update(0.3) This doesn't properly time the first loop, so I use time.sleep instead
+        time.sleep(3)
         self.newsTitle.undraw()
         self.newsBody.undraw()
 
@@ -166,7 +168,7 @@ def button(text,textSize=24): #I Used ABSTRACTION to make a button with a flexib
 
 def main():
     w = Window()
-    w.getName()
+ #   w.getName()
     w.createInterface() 
     product = w.getProduct()
     w.setGraph()
