@@ -82,7 +82,7 @@ class Window:
                 ]
             selector = random.randint(0,len(news)-1)
             return news[selector]
-        def carNews():             #I USED ABSTACTION TO TURN THE CRAP BELOW INTO THE BEAUTIFUL CRAP ABOVE
+        def carNews():          
             news = [
                 ["MITSUBISHI OPENS UP\nSTORES","The foreign company, Mitsubishi, has\nopened their ever-popular shop at the\nother side of town. Hurry up and\nget there to get the cheapest prices!\nSorry to the other car firms that have\nto compete with Mitusbishi.\nMay you rest in peace.",-40],
                 ["ECONOMY BOOST","Statisticians have estimated a large increase in the incomes of many Americans. \'I am delighted by this shift\' says economist Dr. David. \'I expect an increase in purchases of expensive products like cars.\'",20],
