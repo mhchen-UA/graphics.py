@@ -60,9 +60,12 @@ class Window:
         self.textProfit = Text(Point(self.x//4,(self.y*11)//12),"Profit: "+str(self.revenue - self.inputCost))
         self.textProfit.setSize(self.textSize)
         self.textProfit.draw(self.win)
+        self.newsText = Text(Point((self.x*3)//4,(self.y*9)//16),"News")
+        self.newsText.setSize(26)
+        self.newsText.draw(self.win)
         
     def getProduct(self): #ask the user for product to sell
-        product = button("Product")
+        product = button("Gas, Car, or Cake?")
         if product.lower() == "cake" or product.lower() == "car" or product.lower() == "gas":   
             return product
         return self.getProduct()
@@ -76,13 +79,13 @@ class Window:
         def cakeNews():
             #[Title,text,demand-shift]
             news = [
-                ["CAKES ARE UNHEALTHY","The University of Anarctica has found a shocking discovery on the strong correlation between cakes and diabetes. \'They have too much sugar, the public should really refrain from eat them\' says Dr. Michael, the leading scientist in this study.",-20],
-                ["POLICE SHOOTING SPARKS\nPROTESTS: #Justice4Caker","In this amateur video shot by a bystander, officer Repucci fatally shot an unarmed 9 year old girl while she was making cake. Protesters are encouraging to buy cakes to support their campaign in prosecuting Repucci.",50],
-                ["NATIONAL CAKE DAY","The President of the United States has official declared this day to be National Cake Day. Citizens world-wide are celebrating by buying more cake.",200],
+                ["CAKES ARE UNHEALTHY","The University of Anarctica has\nfound a shocking discovery on\nthe strong correlation between cakes and\ndiabetes. \'They have too much\nsugar, the public should really refrain\nfrom eating them\' says Dr. Michael,\nthe leading scientist in this study.",-20],
+                ["POLICE SHOOTING SPARKS\nPROTESTS","An amateur video shot by a\nbystander, officer Repucci fatally shot an\nunarmed 9 year old girl while she was\nmaking cake. Protesters are encouraging\neveryone to buy cakes to support their\ncampaign in prosecuting Repucci.",50],
+                ["NATIONAL CAKE DAY","The President of the United States has\nofficial declared this day to be National\nCake Day. Citizens world-wide are\ncelebrating by buying more cake.",200],
                 ]
             selector = random.randint(0,len(news)-1)
             return news[selector]
-        def carNews():          
+        def carNews(): 
             news = [
                 ["MITSUBISHI OPENS UP\nSTORES","The foreign company, Mitsubishi, has\nopened their ever-popular shop at the\nother side of town. Hurry up and\nget there to get the cheapest prices!\nSorry to the other car firms that have\nto compete with Mitusbishi.\nMay you rest in peace.",-40],
                 ["ECONOMY BOOST","Statisticians have estimated a large increase in the incomes of many Americans. \'I am delighted by this shift\' says economist Dr. David. \'I expect an increase in purchases of expensive products like cars.\'",20],
@@ -92,7 +95,8 @@ class Window:
             return news[selector]
         def gasNews():
             news = [
-            ["BOYCOTT "+self.name.upper()+"!",self.name+"'s oil rig exploded over the Gulf\nof Mexico, prompting ocean wildlife\nprotestors to boycott their gas.",0]
+            ["BOYCOTT "+self.name.upper()+"!",self.name+"'s oil rig exploded over the Gulf\nof Mexico, prompting ocean wildlife\nprotestors to boycott their gas.",0],
+            ["BP DROPS OUT","The massive company, BP, has\nofficially announced on twitter that\n they're going out of business. \'That's\none less competitor for the gas\n industry\' says economist Rempala.",20]
             ]
             selector = random.randint(0,len(news)-1)
             return news[selector]
@@ -104,9 +108,9 @@ class Window:
             return gasNews()
 
     def setNews(self,product):
-        self.newsBox = Rectangle(Point((self.x*9)//16,(self.y*9)//16),Point((self.x*15)//16,(self.y*15)//16))
+        self.newsBox = Rectangle(Point((self.x*9)//16,(self.y*19)//32),Point((self.x*15)//16,(self.y*15)//16))
         self.newsBox.draw(self.win)
-        self.newsTitle = Text(Point((self.x*3)//4,(self.y*5)//8),product[0])
+        self.newsTitle = Text(Point((self.x*3)//4,(self.y*11)//16),product[0])
         self.newsTitle.setSize(20)
         self.newsTitle.draw(self.win)
         self.newsBody = Text(Point((self.x*3)//4,(self.y*13)//16),product[1])
@@ -119,7 +123,7 @@ class Window:
         update(1)
         self.newsTitle.undraw()
         self.newsBody.undraw()
-        self.start(product,w)
+        self.win.setBackground(color_rgb(random.randint(1,255),random.randint(1,255),random.randint(1,255)))
 
     def getName(self):
         self.name = button("Name")
@@ -141,7 +145,7 @@ def button(text): #I Used ABSTRACTION to make a button with a flexible text for 
         a = True
         Input = ""
         while(a):
-            b = w.getMouse()
+            b = w.getMouse() #Event for if the mouse is clicked in the rectangle
             if b.getX()<200 and b.getX()>100 and b.getY() >110 and b.getY()<150:
                 a = False
                 Input = e.getText()
@@ -154,6 +158,7 @@ def main():
     w.createInterface() 
     product = w.getProduct()
     w.setGraph()
-    w.start(product,w)
+    while True:
+        w.start(product,w)
 
 main()
