@@ -101,7 +101,7 @@ class Window:
     def getNews(self, product):  #gets random news
         nonews = random.randint(0,1)
         if nonews:
-            return
+            return ["","",0]
         def cakeNews():
             if len(self.cakeNews)==0:  #Returns empty if there's no more news
                 return ["","",0]
