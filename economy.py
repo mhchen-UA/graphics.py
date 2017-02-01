@@ -18,7 +18,8 @@ class Window:
         self.y = 600
         self.day = 0
         self.textSize = 25
-        self.e = None #Input Object (e = Entry())
+        self.e = None #Entry Object
+        self.accountBalance = 0
         self.revenue = 0   #Revenue
         self.stock = 0  #Quanity owned
         self.inputCost = 0 #Input Cost
@@ -88,9 +89,19 @@ class Window:
     def setGraph(self): #create curve based on elasticity
         self.graph = Rectangle(Point((self.x*9)//16,(self.y)//16),Point((self.x*15)//16,(self.y*7)//16))
         self.graph.draw(self.win)
-        pass
-
+        
+    def setAccountBalanace(self,product):
+        if product == "car":
+            self.accountBalance = 100000
+        elif product == "cake":
+            self.accountBalance = 5000
+        elif product == "gas":
+            self.accountBalance = 20000
+        
     def getNews(self, product):  #gets random news
+        nonews = random.randint(0,1)
+        if nonews:
+            return
         def cakeNews():
             if len(self.cakeNews)==0:  #Returns empty if there's no more news
                 return ["","",0]
@@ -129,12 +140,21 @@ class Window:
         self.newsBody = Text(Point((self.x*3)//4,(self.y*13)//16),product[1])
         self.newsBody.setSize(15)
         self.newsBody.draw(self.win)
+
+    def setCost(self,product):
+        if product == "gas":
+            self.inputCost = 4
+        elif product == "cake":
+            self.inputCost = 3
+        elif product == "car":
+            self.inputCost == 5000
         
     def start(self,product,w): #Starts from Day 1, asks for price, then calculates revenue based on graph
         news = w.getNews(product)
         w.setNews(news)
         self.win.setBackground(color_rgb(random.randint(1,255),random.randint(1,255),random.randint(1,255)))
-       #update(0.3) This doesn't properly time the first loop, so I use time.sleep instead
+        self.setCost(product)
+        #update(0.3) This doesn't properly time the first loop, so I use time.sleep instead
         time.sleep(3)
         self.newsTitle.undraw()
         self.newsBody.undraw()
