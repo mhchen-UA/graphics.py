@@ -58,7 +58,7 @@ from graphics import *
   `Circle(Point,radius)` 
   
   
-  `Rectangle(Point,Point)`
+  `Rectangle(Point,Point)` Top-left point, bottom-right point
   
   
   `Polygon(Point,Point,Point...)`   Infinite points
