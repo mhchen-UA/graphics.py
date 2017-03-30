@@ -123,10 +123,10 @@ X11 Colors: http://cng.seas.rochester.edu/CNG/docs/x11color.html
 from graphics import *
 win = GraphWin("Michael",500,300) #Window of height 500px and width 300px
 for i in range(30):
-  c = Circle(Point(100+i,100),40) #Creates a Circle with radius 40px
-  c.draw(win)  #Actually draws it
-  update(1)  #Use update() inside loops to draw moving shapes
-  c.undraw()  #Removes it
+    c = Circle(Point(100+i,100),40) #Creates a Circle with radius 40px
+    c.draw(win)  #Actually draws it
+    update(1)  #Use update() inside loops to draw moving shapes
+    c.undraw()  #Removes it
 ```
 
 
